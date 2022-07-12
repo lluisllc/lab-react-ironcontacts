@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+
+import "./App.css";
+import contacts from "./contacts.json";
+import { useState } from "react";
+export default App;
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const arrFive = contacts.slice(0, 5);
+  // eslint-disable-next-line
+  const [contactList, setContactList] = useState(arrFive);
 
-export default App;
+  return (<div className="App">  
+  <table>
+  <tr>
+    <th >Picture</th>
+    <th >Name</th>
+    <th >Popularity</th>
+  </tr>
+  {contactList.map((contact) => (
+  <tr>
+    <td><img src={contact.pictureUrl} class="foto" alt="IMG"></img></td>
+    <td>{contact.name}</td>
+    <td>{contact.popularity}</td>
+  </tr>
+    ))}
+</table>  
+  </div>
+  )
+}
