@@ -5,13 +5,19 @@ import contacts from "./contacts.json";
 import { useState } from "react";
 export default App;
 
-
 function App() {
   const arrFive = contacts.slice(0, 5);
   // eslint-disable-next-line
   const [contactList, setContactList] = useState(arrFive);
+  function Aleatoria (){
+  console.log(contacts.length)
+  const randomIndex = Math.ceil(Math.random()*contacts.length);
+  setContactList([...contactList, contacts[randomIndex]])
+  }
 
   return (<div className="App">
+ <button onClick = {Aleatoria}>Add random!</button>
+ 
     <table>
       <tr>
         <th >Picture</th>
