@@ -11,21 +11,26 @@ function App() {
   // eslint-disable-next-line
   const [contactList, setContactList] = useState(arrFive);
 
-  return (<div className="App">  
-  <table>
-  <tr>
-    <th >Picture</th>
-    <th >Name</th>
-    <th >Popularity</th>
-  </tr>
-  {contactList.map((contact) => (
-  <tr>
-    <td><img src={contact.pictureUrl} class="foto" alt="IMG"></img></td>
-    <td>{contact.name}</td>
-    <td>{contact.popularity}</td>
-  </tr>
-    ))}
-</table>  
+  return (<div className="App">
+    <table>
+      <tr>
+        <th >Picture</th>
+        <th >Name</th>
+        <th >Popularity</th>
+        <th >Won an Oscar</th>
+        <th >Won an Emmy</th>
+      </tr>
+
+      {contactList.map((contact) => (
+        <tr>
+          <td><img src={contact.pictureUrl} class="foto" alt="IMG"></img></td>
+          <td>{contact.name}</td>
+          <td>{contact.popularity}</td>
+          {contact.wonOscar ? (<td>🏆</td>) : (<td></td>)}
+          {contact.wonEmmy ? (<td>🏆</td>) : (<td></td>)}
+        </tr>
+      ))}
+    </table>
   </div>
   )
 }
